@@ -41,8 +41,8 @@ Use these defaults for software-domain transcript cleanup and translation. If an
 - script: for `脚本`.
 - workflow automation: for `流程自动化`.
 - test run: for `试运行`, `预运行`, or `干跑` when naming a safe preview operation.
-- API endpoint: for `接口端点`.
-- API: for `接口` when technical.
+- interface endpoint: for `接口端点`.
+- interface: for `接口` when technical.
 - authentication: for `鉴权`.
 - credentials: for `凭证`.
 - token: for `令牌` or `token`.
@@ -61,11 +61,9 @@ Use these defaults for software-domain transcript cleanup and translation. If an
 - repository hosting
 - continuous integration
 - continuous delivery
-- JavaScript
-- TypeScript
 - scripting language
-- API
-- IDE
+- interface
+- development environment
 - UI
 - SLA
 - unique identifier
@@ -76,12 +74,12 @@ Use these defaults for software-domain transcript cleanup and translation. If an
 - `用力` usually means `用例` -> use case.
 - `出狱` in private deployment context usually means `出域` -> leave the environment.
 - Speech-recognition variants of scripting-language names should be normalized only when context makes the intended language clear.
-- `Rest` should be normalized to `REST` only if the project glossary or source consistently treats it as the API architectural style.
+- Architectural style names should be normalized only if the project glossary or source consistently treats them as standard terms.
 - Safe preview-operation terms should be translated as generic `test run` or `preview run` unless the project glossary uses a specific feature name.
 
 ## Translation tone
 
-Use natural English for a live product presentation:
+Use meaning-preserving idiomatic English for a live product presentation:
 
 - Keep the speaker's first-person demo voice.
 - Prefer clear enterprise software wording over literal Chinese syntax.

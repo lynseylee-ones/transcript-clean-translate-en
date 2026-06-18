@@ -1,28 +1,29 @@
 # transcript-clean-translate-en
 
-Reusable agent skill for cleaning raw Chinese transcripts and translating them into natural English without turning them into summaries or marketing copy.
+Reusable agent skill for cleaning raw Chinese transcripts and translating them into meaning-preserving idiomatic English without turning them into summaries or marketing copy.
 
-This skill is designed for AI agents such as Codex and Claude Code. It helps teams process Chinese livestream, webinar, meeting, interview, and product-demo transcripts while preserving the original order, meaning, speaker intent, and technical detail.
+This skill is designed for agent runtimes such as Codex and CC. It helps teams process Chinese livestream, webinar, meeting, interview, and product-demo transcripts while preserving the original order, meaning, speaker intent, and technical detail.
 
 ## Why This Exists
 
-Raw ASR transcripts often contain speaker labels, timestamps, filler words, repeated fragments, and misrecognized product terms. Generic translation prompts can also over-polish the material, drop caveats, merge paragraphs, or rewrite the transcript into a different format.
+Raw speech-to-text transcripts often contain speaker labels, timestamps, filler words, repeated fragments, and misrecognized technical terms. Generic translation prompts can also over-polish the material, drop caveats, merge paragraphs, or rewrite the transcript into a different format.
 
 `transcript-clean-translate-en` gives the agent a stricter workflow:
 
 - clean transcript noise without deleting substantive content
 - preserve paragraph order and level of detail where practical
 - standardize software-domain terminology
-- translate into natural English suitable for product, enablement, or webinar reuse
+- translate into idiomatic English suitable for product, enablement, or webinar reuse
+- avoid literal Chinese-to-English sentence mirroring
 - run basic QA before reporting the result
 
 ## What It Handles
 
-- Chinese ASR transcript cleanup
+- Chinese transcript cleanup
 - Chinese-to-English transcript translation
 - two-step output: cleaned Chinese plus English translation
 - `.txt`, `.md`, `.docx`, pasted text, and other readable transcript sources
-- AI, scripting, API, cloud software, delivery pipeline, and migration terminology
+- AI, scripting, interface, cloud software, delivery pipeline, and migration terminology
 - plain-text output with paragraph breaks only
 
 ## What It Avoids
@@ -32,6 +33,7 @@ Raw ASR transcripts often contain speaker labels, timestamps, filler words, repe
 - deleting examples, caveats, demo steps, or Q&A content
 - adding Markdown structure to the final transcript
 - inventing missing context or smoothing away meaningful uncertainty
+- preserving Chinese sentence patterns that sound unnatural in English
 
 ## Installation
 
@@ -51,7 +53,7 @@ mkdir -p ~/.codex/skills/transcript-clean-translate-en
 cp -R SKILL.md references agents ~/.codex/skills/transcript-clean-translate-en/
 ```
 
-Install for Claude Code:
+Install for CC:
 
 ```bash
 mkdir -p ~/.claude/skills
@@ -70,7 +72,7 @@ Explicit invocation in Codex:
 $transcript-clean-translate-en
 ```
 
-Explicit invocation in Claude Code:
+Explicit invocation in CC:
 
 ```text
 /transcript-clean-translate-en
@@ -83,7 +85,7 @@ Use transcript-clean-translate-en to clean this raw Chinese transcript and save 
 ```
 
 ```text
-Use transcript-clean-translate-en to translate this Chinese transcript into natural English. Preserve paragraph order and do not summarize.
+Use transcript-clean-translate-en to translate this Chinese transcript into meaning-preserving idiomatic English. Preserve paragraph order and do not summarize.
 ```
 
 ```text
@@ -91,7 +93,7 @@ Use transcript-clean-translate-en to produce two files: a cleaned Chinese versio
 ```
 
 ```text
-Use transcript-clean-translate-en for this product demo transcript. Standardize product, API, workflow, trigger, field, test-run, and audit-log terminology.
+Use transcript-clean-translate-en for this product demo transcript. Standardize product, interface, workflow, trigger, field, test-run, and audit-log terminology.
 ```
 
 More prompt patterns are in [`references/prompt-and-model-guide.md`](./references/prompt-and-model-guide.md).
@@ -107,16 +109,11 @@ The final transcript should contain paragraph breaks only. It should not include
 
 ## Model Guidance
 
-Use the strongest available model when the transcript is long, messy, technical, customer-facing, or intended for publication.
+Use the strongest available model when the transcript is long, messy, technical, customer-facing, or intended for publication. Prefer a model with strong long-context handling, terminology consistency, and omission control.
 
-As of 2026-06-18:
+Avoid old pinned model identifiers in shared instructions. Prefer current model aliases or a centrally maintained model picker so each teammate gets the best available model in their environment.
 
-- Codex: start with `gpt-5.5`; use `gpt-5.4-mini` only for short, low-risk cleanup.
-- Claude Code: use `opus` or a default plan that maps to Opus for high-risk work; use `sonnet` for routine cleanup.
-
-Prefer current aliases or the model picker over old pinned model IDs in shared team instructions. Recheck official model docs before broad rollout or quarterly reuse.
-
-## Codex and Claude Code Compatibility
+## Codex And CC Compatibility
 
 The portable core is:
 
@@ -129,7 +126,7 @@ transcript-clean-translate-en/
 
 Codex uses the `name` and `description` fields in `SKILL.md`, and may display metadata from `agents/openai.yaml`.
 
-Claude Code can use the same `SKILL.md`; it relies on the skill folder name and `description`, and ignores `agents/openai.yaml`.
+CC can use the same `SKILL.md`; it relies on the skill folder name and `description`, and ignores `agents/openai.yaml`.
 
 Keep the folder name as `transcript-clean-translate-en`. Avoid adding platform-only commands to `SKILL.md` if you want the skill to remain portable.
 
@@ -139,7 +136,8 @@ Keep the folder name as `transcript-clean-translate-en`. Avoid adding platform-o
 | --- | --- |
 | [`SKILL.md`](./SKILL.md) | Core agent instructions and workflow |
 | [`references/terminology.md`](./references/terminology.md) | Software-domain terminology defaults |
-| [`references/prompt-and-model-guide.md`](./references/prompt-and-model-guide.md) | Prompt examples, model choices, and Codex/Claude Code setup notes |
+| [`references/idiomatic-translation.md`](./references/idiomatic-translation.md) | Chinese-to-English idiomatic translation rules |
+| [`references/prompt-and-model-guide.md`](./references/prompt-and-model-guide.md) | Prompt examples, model guidance, and setup notes |
 | [`agents/openai.yaml`](./agents/openai.yaml) | Codex UI metadata |
 
 ## Feedback
@@ -149,13 +147,6 @@ Issues and pull requests are welcome for:
 - better transcript cleanup guardrails
 - terminology corrections
 - prompt examples for new transcript types
-- Codex or Claude Code compatibility notes
+- Codex or CC compatibility notes
 
 Please keep changes focused on transcript cleanup, transcript translation, and terminology consistency. This skill is intentionally not a general writing, summarization, or marketing-copy workflow.
-
-## Reference Links
-
-- [Codex skills](https://developers.openai.com/codex/skills)
-- [Codex models](https://developers.openai.com/codex/models)
-- [Claude Code skills](https://docs.anthropic.com/en/docs/claude-code/skills)
-- [Claude Code model configuration](https://docs.anthropic.com/en/docs/claude-code/model-config)

@@ -1,4 +1,4 @@
 interface:
   display_name: "Transcript EN Workflow"
-  short_description: "Clean Chinese transcripts and translate them into natural English"
-  default_prompt: "Use $transcript-clean-translate-en to clean a Chinese raw transcript and translate it into plain English. Preserve paragraph order, remove only transcript noise, standardize terminology, and run the QA checks before finishing."
+  short_description: "Clean Chinese transcripts and translate them into idiomatic English"
+  default_prompt: "Use $transcript-clean-translate-en to clean a Chinese raw transcript and translate it into meaning-preserving idiomatic English. Preserve paragraph order, remove only transcript noise, avoid literal Chinese-to-English transfer, standardize terminology, and run the QA checks before finishing."
