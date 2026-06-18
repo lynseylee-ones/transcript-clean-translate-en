@@ -12,7 +12,7 @@ Raw ASR transcripts often contain speaker labels, timestamps, filler words, repe
 
 - clean transcript noise without deleting substantive content
 - preserve paragraph order and level of detail where practical
-- standardize ONES and software-domain terminology
+- standardize software-domain terminology
 - translate into natural English suitable for product, enablement, or webinar reuse
 - run basic QA before reporting the result
 
@@ -22,7 +22,7 @@ Raw ASR transcripts often contain speaker labels, timestamps, filler words, repe
 - Chinese-to-English transcript translation
 - two-step output: cleaned Chinese plus English translation
 - `.txt`, `.md`, `.docx`, pasted text, and other readable transcript sources
-- ONES, Jira, AI, scripting, API, SaaS, CI/CD, and migration terminology
+- AI, scripting, API, cloud software, delivery pipeline, and migration terminology
 - plain-text output with paragraph breaks only
 
 ## What It Avoids
@@ -38,7 +38,7 @@ Raw ASR transcripts often contain speaker labels, timestamps, filler words, repe
 Clone this repository:
 
 ```bash
-git clone https://github.com/lynseylee-ones/transcript-clean-translate-en.git
+git clone <repository-url>
 cd transcript-clean-translate-en
 ```
 
@@ -91,7 +91,7 @@ Use transcript-clean-translate-en to produce two files: a cleaned Chinese versio
 ```
 
 ```text
-Use transcript-clean-translate-en for this ONEScript demo transcript. Standardize ONES, Jira, ScriptRunner, REST, Dry run, issue, trigger, field, and audit logs terminology.
+Use transcript-clean-translate-en for this product demo transcript. Standardize product, API, workflow, trigger, field, test-run, and audit-log terminology.
 ```
 
 More prompt patterns are in [`references/prompt-and-model-guide.md`](./references/prompt-and-model-guide.md).
@@ -138,7 +138,7 @@ Keep the folder name as `transcript-clean-translate-en`. Avoid adding platform-o
 | Path | Purpose |
 | --- | --- |
 | [`SKILL.md`](./SKILL.md) | Core agent instructions and workflow |
-| [`references/terminology.md`](./references/terminology.md) | ONES and software-domain terminology defaults |
+| [`references/terminology.md`](./references/terminology.md) | Software-domain terminology defaults |
 | [`references/prompt-and-model-guide.md`](./references/prompt-and-model-guide.md) | Prompt examples, model choices, and Codex/Claude Code setup notes |
 | [`agents/openai.yaml`](./agents/openai.yaml) | Codex UI metadata |
 

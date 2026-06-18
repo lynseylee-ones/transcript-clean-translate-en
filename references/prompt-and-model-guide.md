@@ -19,7 +19,7 @@ Output a plain UTF-8 .txt file. Remove speaker labels, timecodes, fillers, and r
 ```text
 Use transcript-clean-translate-en to translate this Chinese transcript into natural English.
 
-Do a light cleanup pass before translating, but only deliver the English .txt file. Preserve paragraph order where practical. Keep product names, code identifiers, API terms, and ONES/software terminology consistent. Do not summarize or rewrite it into marketing copy.
+Do a light cleanup pass before translating, but only deliver the English .txt file. Preserve paragraph order where practical. Keep product names, code identifiers, API terms, and software terminology consistent. Do not summarize or rewrite it into marketing copy.
 ```
 
 ### Cleaned Chinese plus English
@@ -36,9 +36,9 @@ Keep the same order and level of detail. Remove only transcript noise, not subst
 ### Long transcript with terminology risk
 
 ```text
-Use transcript-clean-translate-en for this long ONES/software transcript.
+Use transcript-clean-translate-en for this long software-domain transcript.
 
-Before editing, inspect the source structure and read the local terminology reference. Preserve paragraph order. Standardize terms such as ONEScript, Jira, ScriptRunner, REST, Dry run, issue, trigger, field, and audit logs. After writing the file, check for timecodes, remaining Chinese in the English output, Markdown formatting, and terminology drift.
+Before editing, inspect the source structure and read the local terminology reference. Preserve paragraph order. Standardize product names, scripting terms, API terms, work item terms, triggers, fields, test-run operations, and audit-log terminology. After writing the file, check for timecodes, remaining Chinese in the English output, Markdown formatting, and terminology drift.
 ```
 
 ## Prompt guardrails for colleagues

@@ -1,6 +1,6 @@
 ---
 name: transcript-clean-translate-en
-description: Clean raw Chinese livestream, webinar, meeting, interview, or product-demo transcripts and translate them into natural English. Use when the user asks to process Chinese audio-to-text transcripts, remove speaker/timecode labels, clean filler words and repeated phrasing, preserve original paragraph/order/content, standardize ONES or software-domain terminology, produce a cleaned Chinese version, translate into plain English, or prepare reusable prompt/model guidance for this workflow.
+description: Clean raw Chinese livestream, webinar, meeting, interview, or product-demo transcripts and translate them into natural English. Use when the user asks to process Chinese audio-to-text transcripts, remove speaker/timecode labels, clean filler words and repeated phrasing, preserve original paragraph/order/content, standardize software-domain terminology, produce a cleaned Chinese version, translate into plain English, or prepare reusable prompt/model guidance for this workflow.
 ---
 
 # Transcript Clean Translate EN
@@ -28,8 +28,8 @@ If the user asks how to share, install, prompt, or choose a model for this skill
 - Identify whether the source is raw Chinese, cleaned Chinese, or already English.
 - Count or sample paragraphs so you understand the source structure.
 - If the source contains speaker labels and timecodes, confirm the patterns before removing them.
-- If the content involves ONES, Jira, AI, scripting, R&D management, SaaS, APIs, CI/CD, or migration, read `references/terminology.md`.
-- If an ONES terminology glossary is available in the workspace, use it. If the online glossary is not accessible, proceed with local/reference terminology and disclose that online terminology was not rechecked.
+- If the content involves AI, scripting, R&D management, cloud software, APIs, delivery pipelines, migration, or workflow automation, read `references/terminology.md`.
+- If a project-specific terminology glossary is available in the workspace, use it. If an online glossary is not accessible, proceed with local/reference terminology and disclose that online terminology was not rechecked.
 - Decide whether the user wants one output or two outputs:
   - cleaned Chinese only
   - English translation only
@@ -66,7 +66,7 @@ When translating:
 - Keep the speaker's original level of detail and sequence.
 - Preserve first-person wording when the source is a live talk or demo.
 - Keep spoken-flow transitions when they carry meaning, but remove transcript-only clutter.
-- Translate technical terms consistently using `references/terminology.md` and any available ONES glossary.
+- Translate technical terms consistently using `references/terminology.md` and any available project glossary.
 - Keep product names, code identifiers, platform names, and API terms in their standard English form.
 - Use plain text only, with paragraph breaks only.
 
@@ -76,7 +76,7 @@ Do not:
 - Remove repeated demo references or Q&A content if they are part of the source.
 - Compress multiple source paragraphs into one polished paragraph just to improve style.
 - Add Markdown formatting, section titles, bullets, numbering, or emphasis.
-- Localize away product-specific concepts such as `issue`, `trigger`, `field`, `Dry run`, `REST endpoint`, `audit logs`, or `ScriptRunner`.
+- Localize away product-specific concepts such as `work item`, `trigger`, `field`, `test run`, `API endpoint`, or `audit log`.
 
 ### 4. Output files
 
@@ -98,7 +98,7 @@ Run lightweight checks before finishing:
 - Confirm no Chinese characters remain in an English-only translation unless they are intentional proper nouns.
 - Confirm no Markdown structure was introduced.
 - Confirm paragraph count is preserved or explain if it changed because the source contained broken sentence fragments.
-- Search for obvious terminology drift such as inconsistent `ONEScript`/`ONES Script`, `Jira`/`JIRA`, `JavaScript`, `TypeScript`, `Groovy`, `REST`, `Dry run`, `AI Skill`, `UUID`.
+- Search for obvious terminology drift such as inconsistent product names, scripting language names, API terms, test-run feature names, reusable skill package names, or identifier formats.
 - Spot-check the beginning, middle, and end of the translation against the source for omissions.
 
 In the final response, link the output file and briefly state what was checked. If the online terminology glossary could not be accessed, mention that the translation used local/reference terminology instead.
